@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee Attendance Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Employee Attendance Dashboard</h1>
+            <p>Face recognition employee check-in and check-out</p>
+        </header>
+
+        <section class="panel">
+            <h2>Register Employee</h2>
+            <form id="employee-form">
+                <div class="grid">
+                    <label>
+                        Employee ID
+                        <input type="text" name="employee_id" required />
+                    </label>
+                    <label>
+                        Name
+                        <input type="text" name="name" required />
+                    </label>
+                    <label>
+                        Department
+                        <input type="text" name="department" />
+                    </label>
+                </div>
+                <label>
+                    Face photos
+                    <input type="file" name="images" multiple accept="image/*" required />
+                </label>
+                <button type="submit">Register</button>
+            </form>
+            <div id="register-message" class="message"></div>
+        </section>
+
+        <section class="panel">
+            <h2>Quick Check-In</h2>
+            <form id="attendance-form">
+                <label>
+                    Photo
+                    <input type="file" name="photo" accept="image/*" required />
+                </label>
+                <label>
+                    Mode
+                    <select name="mode">
+                        <option value="check_in">Check-In</option>
+                        <option value="check_out">Check-Out</option>
+                    </select>
+                </label>
+                <button type="submit">Verify Attendance</button>
+            </form>
+            <div id="attendance-message" class="message"></div>
+        </section>
+
+        <section class="panel">
+            <h2>Attendance Summary</h2>
+            <div id="summary"></div>
+        </section>
+
+        <section class="panel">
+            <h2>Recent Records</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Employee ID</th>
+                        <th>Mode</th>
+                        <th>Confidence</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody id="attendance-table-body"></tbody>
+            </table>
+        </section>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
